@@ -1,4 +1,3 @@
-// Creating a custom exception class
 class StackUnderflowException extends Exception
 {
     public String toString()
@@ -7,20 +6,17 @@ class StackUnderflowException extends Exception
     }
 }
 
-// Stack class
 class Stack
 {
-    int a[];
-    int top;
+    private int a[];
+    private int top;
 
-    // Constructor
     Stack()
     {
         a = new int[5];
         top = -1;
     }
 
-    // Push operation
     void push(int el)
     {
         if(top == a.length - 1)
@@ -34,7 +30,6 @@ class Stack
         }
     }
 
-    // Pop operation
     int pop() throws StackUnderflowException
     {
         if(top < 0)
@@ -46,8 +41,7 @@ class Stack
     }
 }
 
-// Main class
-class DemoStack
+public class DemoStack
 {
     public static void main(String args[])
     {
@@ -55,7 +49,12 @@ class DemoStack
 
         try
         {
-            s.pop();
+            s.push(10);
+            s.push(20);
+            s.push(30);
+
+            System.out.println("Deleted element: " + s.pop());
+            System.out.println("Deleted element: " + s.pop());
         }
         catch(StackUnderflowException se)
         {
